@@ -7,7 +7,7 @@ tags:
   - GitHub Pages
   - Jekyll
   - KaTeX
-katex: true
+latex: true
 ---
 
 GitHub Pages に Jekyll の Minimal Mistakes テーマを導入し，KaTeX で数式を表示させる方法についてのメモ
