@@ -95,5 +95,3 @@ katex: true
 </script>
 {% endif %}
 ```
-
-注）`{% if ... %}` の詳しい使い方は [Liquid](https://shopify.github.io/liquid/) を参照．
