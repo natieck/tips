@@ -58,7 +58,7 @@ plugins:
 author:
   name   : "Natieck"
   avatar : "/assets/images/natieck.png"
-  bio    : "物理とコンピュータとサッカーに興味あり"
+  bio    : "物理とコンピュータに興味あり"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
