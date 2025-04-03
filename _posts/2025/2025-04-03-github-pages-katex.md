@@ -7,7 +7,7 @@ tags:
   - GitHub Pages
   - Jekyll
   - KaTeX
-latex: true
+katex: true
 ---
 
 GitHub Pages に Jekyll の Minimal Mistakes テーマを導入し，KaTeX で数式を表示させる方法についてのメモ
@@ -21,7 +21,6 @@ Jekyll の [Minimal Mistakes remote theme starter](https://github.com/mmistakes/
 [Minimal Mistakes remote theme starter](https://github.com/mmistakes/mm-github-pages-starter) で作成したリポジトリにおいて，`_data/` や `_pages/`，`_posts/` と同じ階層に `_includes/head/custom.html` を新たに作成し，以下を入力する．
 
 ```html
-{% if page.katex %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
 <!-- The loading of KaTeX is deferred to speed up page rendering -->
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
@@ -40,7 +39,6 @@ Jekyll の [Minimal Mistakes remote theme starter](https://github.com/mmistakes/
     });
   });
 </script>
-{% endif %}
 ```
 
 注）Minimal Mistakes 以外の他のテーマだと，最初から `_includes/head-custom.html` というファイルが存在している場合があり，その場合は `head-custom.html` に上を追記すればよい．
@@ -98,4 +96,4 @@ katex: true
 {% endif %}
 ```
 
-注）{% if ... %}の詳しい使い方は [Liquid](https://shopify.github.io/liquid/) を参照．
+注）`{% if ... %}` の詳しい使い方は [Liquid](https://shopify.github.io/liquid/) を参照．
