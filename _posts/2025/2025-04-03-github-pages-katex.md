@@ -73,6 +73,7 @@ katex: true
 
 次に，先ほど作成した `_includes/head-custom.html` において，以下のように追記して `page.katex == true` のときだけ KaTeX を読み込むようにする．
 
+{% raw %}
 ```html
 {% if page.katex %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
@@ -95,3 +96,4 @@ katex: true
 </script>
 {% endif %}
 ```
+{% endraw %}
