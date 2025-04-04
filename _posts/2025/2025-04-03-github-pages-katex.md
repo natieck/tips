@@ -95,4 +95,5 @@ katex: true
 ```
 {% endraw %}
 
+追記：
 [JekTex](https://github.com/yagarea/jektex) という KaTeX と同じレンダリングエンジンをもつ Jekyll 用の $\LaTeX$ 数式レンダリングプラグインがあるが，GitHub Pages の Jekyll 自動ビルドでは使えないらしい．JekTex は数式をサーバサイドでレンダリングするので JavaScript を読み込む必要がなく，KaTeX より表示が速い．
