@@ -15,7 +15,7 @@ GitHub Pages に Jekyll の Minimal Mistakes テーマを導入し，KaTeX で�
 
 ## はじめに
 
-Jekyll の [Minimal Mistakes remote theme starter](https://github.com/mmistakes/mm-github-pages-starter) のテンプレートを用いると，記事を Markdown で書いて [GitHub Pages](https://docs.github.com/ja/pages) で手軽にWeb上に公開できる．そのままでは記事に $\LaTeX$ の数式を表示させることができないので，数式表示のJavaScriptライブラリ $\KaTeX$ を用いて $\LaTeX$ の数式を表示できるように設定する．
+[GitHub Pages](https://docs.github.com/ja/pages) に Jekyll の [Minimal Mistakes remote theme starter](https://github.com/mmistakes/mm-github-pages-starter) テンプレートを導入すると，ローカル環境で Jekyll ビルドすることなく，記事を Markdown で書いて [GitHub Pages](https://docs.github.com/ja/pages) で手軽にWeb上に公開できる．ただ，そのままでは記事に $\LaTeX$ の数式を表示させることができないので，数式表示のJavaScriptライブラリ $\KaTeX$ を用いて $\LaTeX$ の数式を表示できるように設定する．
 
 ## 手順
 
