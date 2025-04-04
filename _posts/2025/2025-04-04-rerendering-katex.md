@@ -1,5 +1,5 @@
 ---
-title: "JavaScript で Web ページに出力した KaTeX の数式がレンダリングされないときの対処法"
+title: "JavaScript で Web ページに出力した KaTeX の数式をレンダリングする方法"
 date: 2025-04-04T09:30:00+09:00
 categories:
   - Web
@@ -10,7 +10,7 @@ katex: true
 toc: false
 ---
 
-ページ読み込み (onload) 後に JavaScript で Web ページに出力した KaTeX の数式がレンダリングされないときの対処法についてのメモ
+ページ読み込み (onload) 後に JavaScript で Web ページに出力した KaTeX の数式をレンダリングする方法についてのメモ
 
 ## はじめに
 
@@ -28,13 +28,13 @@ Web ページにおいて KaTeX で数式を表示させるには，そのペー
 
 上記の3行目で KaTeX 拡張機能 Auto-render を読み込み，ページのすべてのリソースの読み込みが完了した時点で renderMathInElement(document.body) が実行され，ページ内の数式がレンダリングされる．
 
-その後に，なんらかのタイミングで JavaScript によって，以下のように，ある HTML 要素の中身を書き換えても数式として表示させたい箇所 `$ax^2+bx+c=0$` はそのまま表示される．
+その後に，なんらかのタイミングで JavaScript によって，以下のように，ある HTML 要素の innerHTML を数式 `$ax^2+bx+c=0$` を含むテキストで書き換えても，`$ax^2+bx+c=0$` はそのまま表示される．
 
 ```javascript
 document.getElementById('要素のID').innerHTML = "2次方程式 $ax^2+bx+c=0$";
 ```
 
-数式として表示させるためには，innerHTML を書き換えたタイミングで再度，renderMathInElement を実行して，数式をレンダリングし直せばよい．ただし，renderMathInElement(document.body) を実行すると，body 要素内のすべての数式をレンダリングするので，一部だけ書き換えたとしても body 要素内の数式が多いと時間がかかる．一部だけ書き換えた場合は
+数式として表示させるためには，innerHTML を書き換えたタイミングで再度，renderMathInElement を実行して，数式をレンダリングし直せばよい．ただし，renderMathInElement(document.body) を実行すると，body 要素内のすべての数式をレンダリングするので，一部だけ書き換えたときも body 要素内の数式が多いと時間がかかる．ある要素の innerHTML のみを書き換えた場合は
 
 ```javascript
 element = document.getElementById('要素のID');
