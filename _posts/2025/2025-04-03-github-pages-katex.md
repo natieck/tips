@@ -46,7 +46,7 @@ Jekyll の [Minimal Mistakes remote theme starter](https://github.com/mmistakes/
 
 ```markdown
 $$
-i\hbar\frac{d\Psi(\boldsymbol{r},\ t)}{dt}=H\Psi(\boldsymbol{r},\ t)
+i\hbar\frac{d\Psi(\boldsymbol{r},\ t)}{dt}=\hat{H}\Psi(\boldsymbol{r},\ t)
 $$
 ```
 のように入力すると
