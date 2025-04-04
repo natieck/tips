@@ -86,7 +86,9 @@ defaults:
       type: posts
     values:
       layout: single
+      toc: true
       author_profile: true
+      show_date: true
       read_time: true
       comments: true
       share: true
