@@ -1,6 +1,7 @@
 ---
 title: "GitHub Pages に Jekyll の Minimal Mistakes テーマを導入し KaTeX で数式を表示させる方法"
 date: 2025-04-03T12:00:00+09:00
+last_modified_at: 2025-04-04T01:30:30+09:00
 categories:
   - Web
 tags:
@@ -12,13 +13,13 @@ katex: true
 
 GitHub Pages に Jekyll の Minimal Mistakes テーマを導入し，KaTeX で数式を表示させる方法についてのメモ
 
-## 概要
+## はじめに
 
 Jekyll の [Minimal Mistakes remote theme starter](https://github.com/mmistakes/mm-github-pages-starter) のテンプレートを用いると，記事を Markdown で書いて [GitHub Pages](https://docs.github.com/ja/pages) で手軽にWeb上に公開できる．そのままでは記事に $\LaTeX$ の数式を表示させることができないので，数式表示のJavaScriptライブラリ $\KaTeX$ を用いて $\LaTeX$ の数式を表示できるように設定する．
 
 ## 手順
 
-[Minimal Mistakes remote theme starter](https://github.com/mmistakes/mm-github-pages-starter) で作成したリポジトリにおいて，`_data/` や `_pages/`，`_posts/` と同じ階層に `_includes/head/custom.html` を新たに作成し，以下を入力する．
+[Minimal Mistakes remote theme starter](https://github.com/mmistakes/mm-github-pages-starter) で作成したリポジトリにおいて，`_data/` や `_pages/`，`_posts/` と同じ階層に `_includes/head/custom.html` を新たに作成し，以下の KaTeX 導入設定（CDN）を入力して保存する．
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
@@ -39,7 +40,7 @@ Jekyll の [Minimal Mistakes remote theme starter](https://github.com/mmistakes/
 </script>
 ```
 
-注）Minimal Mistakes 以外の他のテーマだと，最初から `_includes/head-custom.html` というファイルが存在している場合があり，その場合は `head-custom.html` に上記のKaTeX設定を追記すればよい．
+注）Minimal Mistakes 以外の他のテーマだと，最初から `_includes/head-custom.html` というファイルが存在している場合があり，その場合は `head-custom.html` に上記の KaTeX 導入設定を追記すればよい．
 
 あとは適当な Markdown 中の数式を表示させたい箇所に
 
@@ -58,7 +59,7 @@ $$
 
 ## 数式があるページにだけ KaTeX を読み込む
 
-数式のないページに KaTeX を読み込んでも，読込速度が落ちるだけで意味がない．数式があるページだけに読み込むようにするために，数式を表示させたい Markdown ファイルの front matter で以下のようにページ変数 `katex: true` を設定する．
+数式のないページに KaTeX を読み込んでも，読込速度が落ちるだけで意味がない．数式があるページだけに読み込むようにするために，数式を表示させたい Markdown ファイルの front matter で以下のようにページ変数 `katex: true` を設定する（[参考ページ](https://tex2e.github.io/blog/latex/mathjax-to-katex)）
 
 ```markdown
 ---
