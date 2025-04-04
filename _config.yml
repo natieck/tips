@@ -27,6 +27,9 @@ search_full_content: true
 
 # Build settings
 markdown: kramdown
+kramdown:
+  # 数式で'が別文字に変換するのを防ぐための設定
+  smart_quotes: ["apos", "apos", "quot", "quot"]
 remote_theme: mmistakes/minimal-mistakes
 # Outputting
 permalink: /:categories/:title/
