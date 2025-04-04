@@ -44,7 +44,7 @@ Jekyll の [Minimal Mistakes remote theme starter](https://github.com/mmistakes/
 
 あとは適当な Markdown 中の数式を表示させたい箇所に
 
-```markdown
+```
 $$
 i\hbar\frac{d\Psi(\boldsymbol{r},\ t)}{dt}=\hat{H}\Psi(\boldsymbol{r},\ t)
 $$
@@ -52,7 +52,7 @@ $$
 のように入力すると
 
 $$
-i\hbar\frac{d\Psi(\boldsymbol{r},\ t)}{dt}=H\Psi(\boldsymbol{r},\ t)
+i\hbar\frac{d\Psi(\boldsymbol{r},\ t)}{dt}=\hat{H}\Psi(\boldsymbol{r},\ t)
 $$
 
 のように数式が表示される．
