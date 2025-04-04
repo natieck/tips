@@ -87,6 +87,7 @@ defaults:
     values:
       layout: single
       toc: true
+      toc_label: "ページ内目次"
       author_profile: true
       show_date: true
       read_time: true
