@@ -24,7 +24,7 @@ GitHub Actions から GitHub Pages にデプロイするときに Pagefind を�
 
 GitHub Actions を選択すると，静的サイトをデプロイするGitHub Actions ワークフロー「Static HTML」が提示されるので，Configure ボタンで編集する． 下に示すようにワークフローの「# ここから ～ # ここまで」の間に，Node.js をセットアップして，Pagefine コマンドを実行するフローを追加して保存する．
 
-```
+```yaml
 jobs:
   # Single deploy job since we're just deploying
   deploy:
