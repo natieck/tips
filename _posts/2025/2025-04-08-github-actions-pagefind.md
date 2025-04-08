@@ -6,7 +6,7 @@ categories:
 tags:
   - Pagefind
   - GitHub Actions
-  - Jekyll
+  - GitHub Pages
 toc: false
 ---
 
