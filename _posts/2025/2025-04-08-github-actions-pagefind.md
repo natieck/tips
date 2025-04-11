@@ -1,6 +1,7 @@
 ---
 title: "GitHub Actions から GitHub Pages にデプロイするときに Pagefind を実行する方法"
 date: 2025-04-08T11:30:00+09:00
+last_modified_at: 2025-04-11T10:00:30+09:00
 categories:
   - Web
 tags:
