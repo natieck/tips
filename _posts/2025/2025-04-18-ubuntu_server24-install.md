@@ -1,6 +1,6 @@
 ---
 title: "Ubuntu Server 24.04 LTS のインストール"
-date: 2025-04-04T09:30:00+09:00
+date: 2025-04-18T07:00:00+09:00
 categories:
   - Linux
 tags:
