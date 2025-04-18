@@ -79,11 +79,14 @@ sudo timedatectl set-timezone Asia/Tokyo
 ```bash
 sudo visudo
 ```
+<br>
+
 `/etc/sudoers` の変更箇所
 ```diff
 -%sudo ALL=(ALL:ALL) ALL
 +%sudo ALL=(ALL:ALL) NOPASSWD:ALL
 ```
+
 ### rootユーザを有効にする
 以下のコマンドでrootになれる．
 ```bash
@@ -105,23 +108,26 @@ Password:（rootのパスワード）
 rootに切り替わる．
 
 ## 日本語環境
+
 ### 日本語パッケージのインストール
 ```bash
 sudo apt -y install language-pack-ja-base language-pack-ja
 ```
+
 ### ロケールを日本語に設定
 ```bash
 sudo localectl set-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja"
 ```
 
 ## デスクトップ環境
+
 ### Ubuntu Desktopのインストール
 ```bash
 sudo apt -y ubuntu-desktop task-gnome-desktop
 ```
 
 ### systemd-networkd-wait-online.serviceの停止
-Ubuntu Desktop環境をインストールすると，サーバ起動時に「Starting Wait for Network to be Configured...」というメッセージが出力され，systemd-networkd-wait-online.serviceで2分ほど待機させられるので，停止する．  
+Ubuntu Desktop環境をインストールすると，サーバ起動時に「Starting Wait for Network to be Configured...」というメッセージが出力され，systemd-networkd-wait-online.serviceで2分ほど待機させられるので，このサービスを停止する．  
 （※ケーブルを刺していないLANポートでのネットワークへの接続確立まで待機しようとする．）  
 GUI環境を構築するとNetworkManagerがデフォルトのネットワークマネージャーになるので，停止してもおそらく問題ないと思われる．
 ```bash
@@ -134,16 +140,19 @@ sudo systemctl disable --now systemd-networkd-wait-online.service
 $ sudo ufw status
 状態: 非アクティブ
 ```
+<br>
 
 Ubuntuインストール直後はファイヤーウォールが非アクティブ（無効）になっているので，アクティブ（有効）化する．
 ```bash
 sudo ufw enable
 ```
+<br>
 
 デフォルトではすべての通信を拒否するように設定する．
 ```bash
 sudo ufw default DENY
 ```
+<br>
 
 SSH（ポート番号:22）を許可する（ルールの追加）．
 ```bash
@@ -159,11 +168,13 @@ sshに対して接続頻度を制限する（執拗に接続してくるアク�
 ```bash
 sudo ufw limit ssh
 ```
+<br>
 
 設定後，ファイヤーウォールの再読み込みを行う．
 ```bash
 sudo ufw reload
 ```
+<br>
 
 ファイヤーウォールを無効化する場合は以下を実行する．
 ```bash
@@ -178,6 +189,7 @@ Pythonでの開発環境を導入する（Ubuntu Server 24.04.2 LTS を導入す
 ```bash
 sudo apt -y install python3-venv python3-pip python3-dev
 ```
+
 ### システムの再起動
 ```bash
 sudo reboot
