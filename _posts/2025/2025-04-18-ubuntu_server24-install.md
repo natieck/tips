@@ -58,10 +58,10 @@ PCのスペック：
 - Ubuntu Pro へのアップデート：Skip for now（スキップする）
 - OpenSSH設定：Install OpenSSH server（OpenSSHをインストール）  
 　Import SSH key （既存のSSH秘密鍵をインポートする必要がなければ特に何もしない）
-- Featured server snaps （パッケージンのインストール）
+- Featured server snaps （パッケージンのインストール）  
 　後から個別にインストールできるので何もしなくてよい．
 
-インストール後，再起動すると Ubuntu Server が起動する（USBメモリを抜いておく）．
+上記設定後，インストールが始まる．インストールが済んで，再起動すると Ubuntu Server が起動する（USBメモリを抜いておく）．
 
 ## 初期設定
 ### パッケージの更新
