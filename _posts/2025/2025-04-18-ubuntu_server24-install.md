@@ -205,12 +205,26 @@ sudo ufw disable
 
 ## その他
 
-### Python3の導入
+### Python3 の導入
 Pythonでの開発環境を導入する（Ubuntu Server 24.04.2 LTS を導入すると，Python3.12.3 が既にインストールされている）．
 仮想環境管理 venv，パッケージ管理 pip，開発ツール dev のインストール
 ```bash
 sudo apt -y install python3-venv python3-pip python3-dev
 ```
+
+### Docker の導入
+https://get.docker.com で配布されているDockerインストール用shellスクリプト（OSを判断してそのOSに合った手順でインストール）を実行する．  
+参照：[Install using the convenience script](https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script)
+```bash
+curl https://get.docker.com | sudo sh
+```
+<br>
+
+Docker グループへユーザを追加
+```bash
+sudo usermod -aG docker ユーザ名
+```
+追加したユーザは再度ログイン後，dockerコマンドが実行できるようになる．
 
 ### システムの再起動
 ```bash
