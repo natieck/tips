@@ -107,6 +107,28 @@ Password:（rootのパスワード）
 ```
 rootに切り替わる．
 
+
+### 論理ボリュームサイズを100%に拡張する
+buntuでデフォルトのインストールした場合，論理ボリュームが100%ではない（ストレージいっぱいまで使われてない）ので，拡張して100%にする．  
+インストールしたPCのSSDの容量は1TBであるが，df コマンドの出力では，/dev/mapper/ubuntu--vg-ubuntu--lv のサイズが 98G しかない．
+
+論理ボリュームの拡張
+```bash
+$ sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+Size of logical volume ubuntu-vg/ubuntu-lv changed from 100.00 GiB (25600 extents) to <928.46 GiB (237685 extents).
+Logical volume ubuntu-vg/ubuntu-lv successfully resized.
+```
+<br>
+
+ファイルシステムの拡張（ファイルシステムに反映させる）
+```bash
+$ sudo resize2fs /dev/ubuntu-vg/ubuntu-lv
+resize2fs 1.47.0 (5-Feb-2023)
+Filesystem at /dev/ubuntu-vg/ubuntu-lv is mounted on /; on-line resizing required
+old_desc_blocks = 13, new_desc_blocks = 117
+The filesystem on /dev/ubuntu-vg/ubuntu-lv is now 243389440 (4k) blocks long.
+```
+
 ## 日本語環境
 
 ### 日本語パッケージのインストール
