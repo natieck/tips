@@ -64,9 +64,9 @@ docker exec open-webui ollama pull モデル名
 ```
 <br>
 
-利用可能なモデルは [Ollama のモデルライブラリ](https://ollama.com/library)から検索できる．
+利用可能なモデルは [Ollama のモデルライブラリ](https://ollama.com/library)で検索できる．
 
-例）
+モデルのセットアップの例
 ```bash
 docker exec open-webui ollama pull llama3.2:3b
 docker exec open-webui ollama pull gemma3:4b
@@ -82,6 +82,8 @@ docker exec open-webui ollama pull qwen2.5:7b
 
 初回アクセス時には，管理者アカウント登録（あくまでもローカルでの登録処理）が必要となるので，名前・メールアドレス・パスワードを設定する（メールアドレスは実在してない適当なものでも構わない）．
 
+Open WebUI で新たなモデルをセットアップする場合，管理者でログインし，「設定」->「管理者設定」->「モデル」を選択し，「Manage Models」ボタン（ダウンロードボタン）をクリックする．「Ollama.com からモデルをプル」の枠内にモデル名を入力し，ダウンロードボタンをクリックする．モデル名は [Ollama のモデルライブラリ](https://ollama.com/library)にあるものを入力すればよい．
+
 ### LAN内の他の端末から Open WebUI にアクセスできるようにする
 ファイヤーウォールが有効（アクティブ）であることを確認
 ```bash
@@ -95,6 +97,8 @@ sudo ufw enable
 ```bash
 sudo ufw allow 3000
 ```
+
+他の端末からは `http://IPアドレス:3000` でアクセスできる（IPアドレスは Open WebUI を導入した PC のIPアドレスを指定）．
 
 ### Open WebUI のユーザーの追加
 管理者以外でも Open WebUI を利用できるようにするには，ユーザーを追加する必要がある．
