@@ -161,7 +161,7 @@ sudo apt-get -y install cudnn
 
 ## NVIDIA Container Toolkit のインストール
 
-Docker で NVIDIA GPU を利用する場合は NVIDIA Container Toolkit をインストールする必要がある．
+Docker コンテナで NVIDIA GPU を利用する場合は NVIDIA Container Toolkit をインストールする必要がある．
 
 まだ，Docker がインストールされていなければ，以下のコマンドでインストールする（https://get.docker.com で配布されているDockerインストール用shellスクリプトを利用）．
 ```bash
