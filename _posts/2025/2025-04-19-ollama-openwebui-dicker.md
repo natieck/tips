@@ -109,3 +109,19 @@ Open WebUI に管理者でログインし，「設定」->「管理者設定」-
 ### すべてのユーザがセットアップした LLM モデルを使えるように設定
 
 Open WebuUI に管理者でログインし，「設定」->「管理者設定」->「モデル」を選択し，各モデルの編集ボタンをクリックして，Visibility が「Private」になっていれば「Public」に変更する．
+
+## Ollama のアップデート
+
+新たな LLM モデルをダウンロード（Ollama で pull）しようとすると
+
+The model you are attempting to pull requires a newer version of Ollama.
+
+というエラーが表示される場合，Ollama をアップデートする必要がある．Docker コンテナの Ollama を最新版にアップデートするには
+```bash
+docker exec -it open-webui bash
+```
+で Open WebUI のコンテナに入って
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+を実行すればよい．
