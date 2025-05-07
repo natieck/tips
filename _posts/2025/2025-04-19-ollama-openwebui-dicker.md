@@ -125,3 +125,26 @@ docker exec -it open-webui bash
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 を実行すればよい．
+
+## Open WebUI のアップデート
+
+### 手動アップデート
+
+1. 古いコンテナの停止と削除
+
+```bash
+docker rm -f open-webui
+```
+
+2. 最新の Docker イメージの pull
+
+```bash
+docker pull ghcr.io/open-webui/open-webui:main
+```
+
+3. 更新したイメージでコンテナを再起動
+
+    GPU を用いて起動するコマンド
+```bash
+docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
+```
