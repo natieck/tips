@@ -134,7 +134,7 @@ curl -fsSL https://ollama.com/install.sh | sh
     ```bash
     docker rm -f open-webui
     ```
-    オプション `-f` (--force) は実行中のコンテナを強制的に削除するオプション
+    `-f` (`--force`) は実行中のコンテナを強制的に削除するオプション
 
 1. 最新の Docker イメージの pull
     ```bash
