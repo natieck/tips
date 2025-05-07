@@ -140,7 +140,7 @@ docker rm -f open-webui
 2. 最新の Docker イメージの pull
 
 ```bash
-docker pull ghcr.io/open-webui/open-webui:main
+docker pull ghcr.io/open-webui/open-webui:ollama
 ```
 
 3. 更新したイメージでコンテナを再起動
