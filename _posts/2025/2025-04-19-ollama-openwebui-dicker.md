@@ -57,9 +57,9 @@ docker run -d -p 3000:8080 -v ollama:/root/.ollama -v open-webui:/app/backend/da
 ```
 
 ### LLM モデルのセットアップ
-最初は，LLM モデルが何も入っていないので，セットアップする必要がある．
+最初は，LLM が何も入っていないので，セットアップする必要がある．
 
-以下のコマンドで LLM モデルをセットアップできる．
+以下のコマンドで LLM をセットアップできる．
 ```bash
 docker exec open-webui ollama pull モデル名
 ```
@@ -112,7 +112,7 @@ Open WebuUI に管理者でログインし，「設定」->「管理者設定」
 
 ## Ollama のアップデート
 
-新たな LLM モデルをダウンロード（Ollama で pull）しようとすると
+新たな LLM をダウンロード（Ollama で pull）しようとすると
 
 The model you are attempting to pull requires a newer version of Ollama.
 
@@ -146,3 +146,5 @@ curl -fsSL https://ollama.com/install.sh | sh
     ```bash
     docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
     ```
+
+上記のアップデートを行っても，Ollama の設定やこれまでダウンロードした LLM はホストの格納場所(/root/.ollama や /app/backend\data)にそのまま残っているので，これまで通り使用できる．
