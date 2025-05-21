@@ -48,7 +48,7 @@ $ sudo dnf install cmake
 
 ## Libxc のインストール
 
-SALMON をインストールする前に，Libxc をインストールしておく．SALMON v.2.2.1 のパッケージの依存関係から最新版（2025年5月19日時点では，libxc-7.0.0.tar.bz2 (Oct 9th, 2024)）ではなく Libxc 6.2.2 (Jun 14th, 2023) を導入する必要がある．Libxc の公式サイトの [Download ページ](https://libxc.gitlab.io/download/previous/)から libxc-6.2.2.tar.bz2 をダウンロードして展開し，libxc-6.2.2 ディレクトリに移動する．
+SALMON をインストールする前に，Libxc をインストールしておく．SALMON v.2.2.1 のパッケージの依存関係から最新版（2025年5月19日時点では libxc-7.0.0.tar.bz2 (Oct 9th, 2024)）ではなく Libxc 6.2.2 (Jun 14th, 2023) を導入する必要がある．Libxc の公式サイトの [Download ページ](https://libxc.gitlab.io/download/previous/)から libxc-6.2.2.tar.bz2 をダウンロードして展開し，libxc-6.2.2 ディレクトリに移動する．
 ```bash
 $ wget https://gitlab.com/libxc/libxc/-/archive/6.2.2/libxc-6.2.2.tar.bz2
 $ tar jxvf libxc-6.2.2.tar.bz2
@@ -85,7 +85,7 @@ $ sudo make install
 
 ## SALMON のインストール
 
-SALMON の公式サイトの[ダウンロードページ](https://salmon-tddft.jp/jp/download.html)から最新リリース（2025年5月19日時点では，SALMON-v.2.2.1.tar.gz）をダウンロードして展開し，SALMON-v.2.2.1 ディレクトリに移動する．
+SALMON の公式サイトの[ダウンロードページ](https://salmon-tddft.jp/jp/download.html)から最新リリース（2025年5月19日時点では SALMON-v.2.2.1.tar.gz）をダウンロードして展開し，SALMON-v.2.2.1 ディレクトリに移動する．
 ```bash
 $ wget http://salmon-tddft.jp/download/SALMON-v.2.2.1.tar.gz
 $ tar zxvf SALMON-v.2.2.1.tar.gz
@@ -101,7 +101,7 @@ Python スクリプト configure.py を実行する．
 ```bash
 $ python ../configure.py --prefix=/opt --enable-libxc --with-libxc=/opt/etsf --enable-mpi FC=mpiifx CC=mpiicx FFLAGS="-xHost" CFLAGS="-xHost"
 ```
-configure オプション
+configure オプション  
 　`--prefix=/opt`：インストール先を `/opt` に設定する  
 　`--enable-libxc`：Libxc ライブラリを有効にする  
 　`--with-libxc=/opt/etsf`：Libxc の場所（`/opt/etsf`）  
