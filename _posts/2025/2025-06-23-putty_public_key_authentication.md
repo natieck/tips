@@ -78,3 +78,57 @@ $ rm id_rsa.pub
 $ chmod 600 .ssh/authorized_keys
 ```
 
+### SSH の設定
+
+必要に応じて `/etc/ssh/sshd_config` ファイルを`root`権限で編集する（公開鍵認証はデフォルトで有効になっている）．
+
+```bash
+# vim /etc/ssh/sshd_config
+```
+
+1. パスワード認証の禁止  
+公開鍵認証でSSH接続できるようになったら，セキュリティを高めるためにパスワード認証によるSSH接続を禁止した方が良い．
+
+```
+#PasswordAuthentication yes
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓
+```
+PasswordAuthentication no
+```
+
+2. 公開鍵認証の許可（SSH2のみ）  
+コメントアウトされていてもデフォルトで有効になっているので，変更する必要はないが念のため．
+
+```
+#PubkeyAuthentication yes
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓
+```
+PubkeyAuthentication yes
+```
+
+3. ポート番号の変更  
+
+```
+#Port 22
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓
+```
+Port ○○
+```
+○○ は任意のポート番号．
+
+### PuTTY による公開鍵認証方式でのSSH接続
+
+PuTTY-ranvis フォルダ内の putty.exe をクリックして PuTTY を起動すると，以下のPuTTY設定ウィンドウが開き，セッション設定画面が表示されるので，「ホスト名（または IP アドレス）」欄に接続先サーバのホスト名か IP アドレスを入力し，ポート番号を変更した場合はその番号に設定する．
+
+![PuTTY_setting1]({{site.baseurl}}/images/PuTTY_setting1.png)
+
+次に，左のカテゴリ内の「接続」⇒「SSH」⇒「認証」⇒「クレデンシャル」を選択すると，以下の表示になるので，「認証のための秘密鍵ファイル」の参照ボタンをクリックして，秘密鍵の生成で保存した秘密鍵ファイル `id_rsa.ppk` を指定する．
+
+![PuTTY_setting2]({{site.baseurl}}/images/PuTTY_setting2.png)
+
+これらの設定は，セッション設定画面で適当に名前を付けて保存しておくとよい．
+
+PuTTY設定ウィンドウの下にある「開く」ボタンを押すと接続先サーバに公開鍵認証方式でSSH接続が行われる．
