@@ -16,7 +16,7 @@ toc: true
 
 Simon Tatham氏によるWindows用リモート接続クライアントである[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)のカスタムビルド版[PuTTY-ranvis](https://www.ranvis.com/putty)（公式版に日本語UI，ISO 2022対応などのパッチを適用したもの）を用いて公開鍵認証方式でSSH接続を行う．
 
-接続先は Rocky Linux や Ubuntu などが導入された Linux サーバとし，SSH接続が許可されているものとする．このサーバにユーザ名`user`のアカウントが存在し，このユーザ`user`でSSH接続する．
+接続先は Rocky Linux や Ubuntu などが導入された Linux サーバとし，SSH接続が許可されているものとする．このサーバにユーザ名 `user` のアカウントが存在し，このユーザ `user` でSSH接続する<span style="color:red;">（ただし，`user` のホームディレクトリに，グループや他のユーザの書き込み権限が与えられていると公開鍵認証での接続ができないので注意）</span>．
 
 ## PuTTY-ranvis のインストール
 
@@ -78,6 +78,8 @@ $ rm id_rsa.pub
 $ chmod 600 .ssh/authorized_keys
 ```
 
+`.ssh` ディレクトリや `authorized_keys` に，グループや他のユーザの書き込み権限を与えていると，公開鍵認証での接続ができなくなる．
+
 ### SSH の設定
 
 必要に応じて `/etc/ssh/sshd_config` ファイルを`root`権限で編集する（公開鍵認証はデフォルトで有効になっている）．
@@ -96,6 +98,8 @@ $ chmod 600 .ssh/authorized_keys
 ```
 PasswordAuthentication no
 ```
+
+ただし，パスワード認証によるSSH接続を禁止すると，公開鍵認証でのみ接続可能となるので，公開鍵認証の設定をしないでパスワード認証を禁止するとリモート接続ができなくなる．
 
 2. 公開鍵認証の許可（SSH2のみ）  
 コメントアウトされていてもデフォルトで有効になっているので，変更する必要はないが念のため．
