@@ -75,7 +75,7 @@ docker exec open-webui ollama pull phi4-mini:3.8b
 docker exec open-webui ollama pull deepseek-r1:7b
 docker exec open-webui ollama pull qwen2.5:7b
 ```
-
+<br>
 [HuggingFace](https://huggingface.co/) の GGUF ファイルとして提供されている LLM をセットアップするには，以下のように実行すればよい．
 
 ```bash
@@ -87,7 +87,7 @@ docker exec open-webui ollama pull huggingface.co/リポジトリ名
 ```bash
 docker exec open-webui ollama pull huggingface.co/elyza/Llama-3-ELYZA-JP-8B-GGUF
 ```
-
+<br>
 もしくは，Open WebUI から GUI でモデルをセットアップすることもできる．
 
 ## Open WebUI にアクセス
