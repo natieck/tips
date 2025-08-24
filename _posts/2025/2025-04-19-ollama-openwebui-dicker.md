@@ -88,7 +88,8 @@ docker exec open-webui ollama pull huggingface.co/リポジトリ名
 docker exec open-webui ollama pull huggingface.co/elyza/Llama-3-ELYZA-JP-8B-GGUF
 ```
 <br>
-もしくは，Open WebUI から GUI でモデルをセットアップすることもできる．
+
+もしくは，Open WebUI の設定（管理者パネル＞設定＞モデル＞モデルの管理）から GUI でモデルをセットアップすることもできる．
 
 ## Open WebUI にアクセス
 上記のように Ollama + Open WebUI コンテナが起動していれば，導入した PC でブラウザを起動して `http://localhost:3000` にアクセスし，Open WebUI を利用できる．
@@ -160,3 +161,5 @@ curl -fsSL https://ollama.com/install.sh | sh
     ```
 
 上記のアップデートを行っても，Ollama の設定やこれまでダウンロードした LLM はホストの格納場所(/root/.ollama や /app/backend\data)にそのまま残っているので，これまで通り使用できる．
+
+<span style="color:red;">※ Docker イメージでは，Ollama のバージョンが最新ではないことがあるので，このアップデートにより Ollama のバージョンが下がって新しめの LLM が使えなくなる場合がある．その場合，改めて上記の Ollama のアップデートを行えばよい．</span>
