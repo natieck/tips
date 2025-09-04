@@ -122,10 +122,11 @@ Ollama API の詳細は [Ollama API ドキュメント](https://github.com/ollam
 <br />
 
 #### 利用可能なモデル一覧を取得
+
   ```bash
   curl -H "Authorization: Bearer YOUR_API_KEY" http://localhost:3000/ollama/api/tags
   ```
-※ 上のコマンドにおいて YOUR_API_KEY の部分を API キー に置き換える．
+  ※ 上のコマンドにおいて YOUR_API_KEY の部分を API キー に置き換える．
 
 - **出力結果**
   ```bash
@@ -135,10 +136,11 @@ Ollama API の詳細は [Ollama API ドキュメント](https://github.com/ollam
 <br />
 
 #### 補完生成（ストリーミング）
+
   ```bash
   curl -H "Authorization: Bearer YOUR_API_KEY" -H "Content-Type: application/json" http://localhost:3000/ollama/api/generate -d '{"model": "gemma3:4b", "prompt": "こんにちは！"}'
   ```
-※ 上のコマンドにおいて YOUR_API_KEY の部分を API キー に置き換え，"model" の "gemma3:4b" は実際に導入されているモデルにする．
+  ※ 上のコマンドにおいて YOUR_API_KEY の部分を API キー に置き換え，"model" の "gemma3:4b" は実際に導入されているモデルにする．
 
 - **出力結果**
   ```bash
@@ -161,9 +163,10 @@ Ollama API の詳細は [Ollama API ドキュメント](https://github.com/ollam
 <br />
 
 #### 埋め込み生成
+
   ```bash
   curl -H "Authorization: Bearer YOUR_API_KEY" -H "Content-Type: application/json" http://localhost:3000/ollama/api/embed -d '{"model": "llama3.2:3b", "input": ["Open WebUI は素晴らしい！", "埋め込みを生成しよう！"]}'
   ```
-※ 上のコマンドにおいて YOUR_API_KEY の部分を API キー に置き換え，"model" の "llama3.2:3b" は実際に導入されている埋め込みに対応したモデルにする．
+  ※ 上のコマンドにおいて YOUR_API_KEY の部分を API キー に置き換え，"model" の "llama3.2:3b" は実際に導入されている埋め込みに対応したモデルにする．
 
 これを実行すると，入力されたテキスト ["Open WebUI は素晴らしい！", "埋め込みを生成しよう！"] を数値ベクトルに変換した結果が出力される．この埋め込み生成により，Open WebUI 背後の Ollama モデルを使用して検索インデックス，検索システム，またはカスタムパイプラインを構築することができる．
