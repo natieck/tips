@@ -113,7 +113,7 @@ Open WebUI の API へアクセスするためには認証が必要となる．�
 
 ### Ollama API プロキシサポート
 
-Ollama モデルと直接やり取りする場合（埋め込み生成や生のプロンプトストリーミングを含む），Open WebUI API を介して Ollama API を利用できる（通常使用される Ollama API で標準的な 11434 ポートは，Ollama がバンドルされた Open WebUI の Docker コンテナでは使えない）．ただし，利用には Open WebUI の認証が必要となる．
+Ollama モデルと直接やり取りする場合（埋め込み生成や生のプロンプトストリーミングを含む），Open WebUI API を介して Ollama API を利用できる（通常使用される Ollama API で標準的な 11434 ポートは，Ollama がバンドルされた Open WebUI の Docker コンテナでは使えない）．ただし，利用には Open WebUI の認証が必要となる（つまり，curl コマンドでは，`-H "Authorization: Bearer YOUR_API_KEY"` オプションを必ずつけなければならない）．
 
 Ollama API の詳細は [Ollama API ドキュメント](https://github.com/ollama/ollama/blob/main/docs/api.md) を参照．
 
@@ -169,4 +169,6 @@ Ollama API の詳細は [Ollama API ドキュメント](https://github.com/ollam
   ```
   ※ 上のコマンドにおいて YOUR_API_KEY の部分を API キー に置き換え，"model" の "llama3.2:3b" は実際に導入されている埋め込みに対応したモデルにする．
 
-これを実行すると，入力されたテキスト ["Open WebUI は素晴らしい！", "埋め込みを生成しよう！"] を数値ベクトルに変換した結果が出力される．この埋め込み生成により，Open WebUI 背後の Ollama モデルを使用して検索インデックス，検索システム，またはカスタムパイプラインを構築することができる．
+これを実行すると，入力されたテキスト ["Open WebUI は素晴らしい！", "埋め込みを生成しよう！"] を数値ベクトルに変換した結果が出力される．
+
+この埋め込み生成により，Open WebUI 背後の Ollama モデルを使用して検索インデックス，検索システム，またはカスタムパイプラインを構築することができる．
