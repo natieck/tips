@@ -1,6 +1,7 @@
 ---
 title: "オープンソース Ab-initio 計算プログラム「SALMON」のインストール"
 date: 2025-05-19T11:30:00+09:00
+last_modified_at: 2025-09-05T010:30:30+09:00
 categories:
   - Physics
 tags:
@@ -18,8 +19,8 @@ Ubuntu Server 及び Rocky Linux にオープンソース Ab-initio 計算プロ
 
 Intel コンパイラ (oneAPI) を導入した Ununtu Server 24.04 LTS 及び Rocky Linux 9 に SALMON をインストールし，準備されているサンプル（アセチレン分子やシリコン結晶などの系）を実行する．また，SALMON のインストールにおいて，密度汎関数理論で用いる交換相関汎関数を計算するためのライブラリ [Libxc](https://libxc.gitlab.io/) を導入し，並列計算には Intel MPI ライブラリを用いる．事前に Intel oneAPI がインストールされていることを前提とする．
 
-- SALMON のバージョン：2.2.1
-- Libxc のバージョン：6.2.2
+- SALMON のバージョン：~~2.2.1~~ 2.2.2（Jun 6th, 2025）
+- Libxc のバージョン：~~6.2.2~~ 7.0.0 (Oct 9th, 2024)
 
 インストール環境：  
 　OS：Ubuntu Server 24.04 LTS または Rocky Linux 9.5  
@@ -48,12 +49,20 @@ $ sudo dnf install cmake
 
 ## Libxc のインストール
 
-SALMON をインストールする前に，Libxc をインストールしておく．SALMON v.2.2.1 のパッケージの依存関係から最新版（2025年5月19日時点では libxc-7.0.0.tar.bz2 (Oct 9th, 2024)）ではなく Libxc 6.2.2 (Jun 14th, 2023) を導入する必要がある．Libxc の公式サイトの [Download ページ](https://libxc.gitlab.io/download/previous/)から libxc-6.2.2.tar.bz2 をダウンロードして展開し，libxc-6.2.2 ディレクトリに移動する．
+SALMON をインストールする前に，Libxc をインストールしておく．~~SALMON v.2.2.1 のパッケージの依存関係から最新版（2025年5月19日時点では libxc-7.0.0.tar.bz2 (Oct 9th, 2024)）ではなく Libxc 6.2.2 (Jun 14th, 2023) を導入する必要がある．~~ <span style="color:red;">SALMON v.2.2.2 では Libxc 7.0.0 を導入できるようになった．</span> ~~Libxc の公式サイトの [Download ページ](https://libxc.gitlab.io/download/previous/)から libxc-6.2.2.tar.bz2 をダウンロードして展開し，libxc-6.2.2 ディレクトリに移動する．~~ Libxc の公式サイトの [Download ページ](https://libxc.gitlab.io/download/previous/)から libxc-7.0.0.tar.bz2 をダウンロードして展開し，libxc-7.0.0 ディレクトリに移動する．
+
 ```bash
-$ wget https://gitlab.com/libxc/libxc/-/archive/6.2.2/libxc-6.2.2.tar.bz2
-$ tar jxvf libxc-6.2.2.tar.bz2
-$ cd libxc-6.2.2
+$ wget https://gitlab.com/libxc/libxc/-/archive/7.0.0/libxc-7.0.0.tar.bz2
+$ tar jxvf libxc-7.0.0.tar.bz2
+$ cd libxc-7.0.0
 ```
+
+- **Libxc 6.2.2 の場合**
+  ```bash
+  $ wget https://gitlab.com/libxc/libxc/-/archive/6.2.2/libxc-6.2.2.tar.bz2
+  $ tar jxvf libxc-6.2.2.tar.bz2
+  $ cd libxc-6.2.2
+  ```
 
 configure ファイルを生成するために，autoreconf を実行する．
 
@@ -85,12 +94,14 @@ $ sudo make install
 
 ## SALMON のインストール
 
-SALMON の公式サイトの[ダウンロードページ](https://salmon-tddft.jp/jp/download.html)から最新リリース（2025年5月19日時点では SALMON-v.2.2.1.tar.gz）をダウンロードして展開し，SALMON-v.2.2.1 ディレクトリに移動する．
+SALMON の公式サイトの[ダウンロードページ](https://salmon-tddft.jp/jp/download.html)から最新リリース（2025年9月5日時点では SALMON-v.2.2.2.tar.gz）をダウンロードして展開し，SALMON-v.2.2.2 ディレクトリに移動する．
+
 ```bash
-$ wget http://salmon-tddft.jp/download/SALMON-v.2.2.1.tar.gz
-$ tar zxvf SALMON-v.2.2.1.tar.gz
-$ cd SALMON-v.2.2.1
+$ wget http://salmon-tddft.jp/download/SALMON-v.2.2.2.tar.gz
+$ tar zxvf SALMON-v.2.2.2.tar.gz
+$ cd SALMON-v.2.2.2
 ```
+
 インストール用に一時的なディレクトリ build を作成し，そのディレクトリに移動する．
 ```bash
 $ mkdir build
@@ -146,7 +157,7 @@ NPROC は MPI プロセスの数である．
 
 ## SALMON の Exercise（サンプル）の実行
 
-SALMON をダウンロードして展開したときにできたディレクトリ (SALMON-v.2.2.1) 内の samples というディレクトリ内に様々なサンプルがある．
+SALMON をダウンロードして展開したときにできたディレクトリ (~~SALMON-v.2.2.1~~ SALMON-v.2.2.2) 内の samples というディレクトリ内に様々なサンプルがある．
 
 なぜか孤立分子系のアセチレン(C2H2)のサンプル（exercise_01-03,08,09）を実行すると segmentation fault エラーが出て止まってしまい，バルク結晶系（周期系）のシリコン(Si)のサンプル（exercise_04-07,x1,x2）と金(Au)ナノ粒子における光伝播のサンプル（exercise_10,11）のみエラーなしに計算が終了した．
 
@@ -160,12 +171,12 @@ $ cp <SALMONのディレクトリ>/samples/exercise_04_bulkSi_gs/* .
 
 単一プロセッサ環境で実行する場合
 ```bash
-$ salmon < Si_gs.inp > fileout.out
+$ salmon < Si_gs.inp > Si_gs.out
 ```
 
 マルチプロセッサ環境でMPIを用いて実行する場合（以下では12プロセスで計算）
 ```bash
-$ mpiexec -n 12 salmon < Si_gs.inp > fileout.out
+$ mpiexec -n 12 salmon < Si_gs.inp > Si_gs.out
 ```
 
-計算が終了すると，fileout.out や他の出力ファイルに結果が出力される．Exercise の計算の詳細は公式サイトの[ドキュメント](https://salmon-tddft.jp/jp/documents.html)に Youtube のチュートリアルで説明されている．
+計算が終了すると，Si_gs.out や他の出力ファイルに結果が出力される．Exercise の計算の詳細は公式サイトの[ドキュメント](https://salmon-tddft.jp/jp/documents.html)に Youtube のチュートリアルで説明されている．
