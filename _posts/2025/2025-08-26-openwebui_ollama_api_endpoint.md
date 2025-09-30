@@ -187,7 +187,7 @@ def query_ollama(prompt,model=MODEL_NAME, temperature=TEMPERATURE, token=TOKEN):
 print(query_ollama('こんにちは！'))
 ```
 
-query_ollama の呼び出し時にモデルや温度を指定できるようにしている．
+query_ollama の呼び出し時にモデルや温度を指定できるようにしている．また，stream を False にして，ストリームせずに一度に全応答を取得するようにし，応答 (response) のみを返すようにしている．
 
 <br />
 
