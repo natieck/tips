@@ -158,7 +158,10 @@ curl -H "Authorization: Bearer YOUR_API_KEY" -H "Content-Type: application/json"
 {"model":"gemma3:4b","created_at":"2025-09-04T06:27:15.219659749Z","response":"","done":true,"done_reason":"stop","context":[105,2364,107,85141,237354,106,107,105,4368,107,85141,237354,98662,203956,239542,236985,17125,41277,17442,237116,237536,103453,107],"total_duration":2784548390,"load_duration":1837923107,"prompt_eval_count":11,"prompt_eval_duration":119637668,"eval_count":14,"eval_duration":826388202}
 ```
 
-- **Python による使用例**:
+<br />
+
+- **Python による使用例**
+
 ```python
 import requests
 
@@ -188,6 +191,7 @@ print(query_ollama('こんにちは！'))
 ```
 
 - **出力結果**
+
 ```bash
 こんにちは！何かお手伝いできることはありますか？ 😊
 ```
