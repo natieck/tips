@@ -163,9 +163,9 @@ curl -H "Authorization: Bearer YOUR_API_KEY" -H "Content-Type: application/json"
 import requests
 
 OLLAMA_URL = "http://localhost:3000/ollama/api/generate"
-MODEL_NAME = "gemma3:4b"  # モデルの指定
-TEMPERATURE = 0       # 温度の指定（0から1の範囲）
-TOKEN = "YOUR_API_KEY" # ← Open WebUI の API キー に置き換える
+MODEL_NAME = "gemma3:4b"   # モデルの指定
+TEMPERATURE = 0   # 温度の指定（0から1の範囲）
+TOKEN = "YOUR_API_KEY"   # ← Open WebUI の API キー に置き換える
 
 def query_ollama(prompt,model=MODEL_NAME, temperature=TEMPERATURE, token=TOKEN):
     headers = {
@@ -185,6 +185,11 @@ def query_ollama(prompt,model=MODEL_NAME, temperature=TEMPERATURE, token=TOKEN):
     return response.json()["response"]
 
 print(query_ollama('こんにちは！'))
+```
+
+- **出力結果**
+```bash
+こんにちは！何かお手伝いできることはありますか？
 ```
 
 query_ollama の呼び出し時にモデルや温度を指定できるようにしている．また，stream を False にして，ストリームせずに一度に全応答を取得するようにし，応答 (response) のみを返すようにしている．
