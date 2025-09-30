@@ -124,7 +124,7 @@ Ollama API の詳細は [Ollama API ドキュメント](https://github.com/ollam
 ```bash
 curl -H "Authorization: Bearer YOUR_API_KEY" http://localhost:3000/ollama/api/tags
 ```
-※ 上のコマンドにおいて YOUR_API_KEY の部分を API キー に置き換える．
+※ 上のコマンドにおいて YOUR_API_KEY の部分を Open WebUI の API キー に置き換える．
 
 - **出力結果**
 ```bash
@@ -138,7 +138,7 @@ curl -H "Authorization: Bearer YOUR_API_KEY" http://localhost:3000/ollama/api/ta
 ```bash
 curl -H "Authorization: Bearer YOUR_API_KEY" -H "Content-Type: application/json" http://localhost:3000/ollama/api/generate -d '{"model": "gemma3:4b", "prompt": "こんにちは！"}'
 ```
-※ 上のコマンドにおいて YOUR_API_KEY の部分を API キー に置き換え，"model" の "gemma3:4b" は実際に導入されているモデルにする．
+※ 上のコマンドにおいて YOUR_API_KEY の部分を Open WebUI の API キー に置き換え，"model" の "gemma3:4b" は実際に導入されているモデルにする．
 
 - **出力結果**
 ```bash
@@ -158,13 +158,44 @@ curl -H "Authorization: Bearer YOUR_API_KEY" -H "Content-Type: application/json"
 {"model":"gemma3:4b","created_at":"2025-09-04T06:27:15.219659749Z","response":"","done":true,"done_reason":"stop","context":[105,2364,107,85141,237354,106,107,105,4368,107,85141,237354,98662,203956,239542,236985,17125,41277,17442,237116,237536,103453,107],"total_duration":2784548390,"load_duration":1837923107,"prompt_eval_count":11,"prompt_eval_duration":119637668,"eval_count":14,"eval_duration":826388202}
 ```
 
+- **Python による使用例**:
+```python
+import requests
+
+OLLAMA_URL = "http://localhost:3000/ollama/api/generate"
+MODEL_NAME = "gemma3:4b"  # モデルの指定
+TEMPERATURE = 0       # 温度の指定（0から1の範囲）
+TOKEN = "YOUR_API_KEY" # ← Open WebUI の API キー に置き換える
+
+def query_ollama(prompt,model=MODEL_NAME, temperature=TEMPERATURE, token=TOKEN):
+    headers = {
+        'Authorization': f'Bearer {token}',
+        'Content-Type': 'application/json'
+    }
+    payload = {
+        "model": model,
+        "prompt": prompt,
+        "stream": False,
+        "options": {
+            "temperature": temperature
+        }
+    }
+    response = requests.post(OLLAMA_URL, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()["response"]
+
+print(query_ollama('こんにちは！'))
+```
+
+query_ollama の呼び出し時にモデルや温度を指定できるようにしている．
+
 <br />
 
 #### 埋め込み生成
 ```bash
 curl -H "Authorization: Bearer YOUR_API_KEY" -H "Content-Type: application/json" http://localhost:3000/ollama/api/embed -d '{"model": "llama3.2:3b", "input": ["Open WebUI は素晴らしい！", "埋め込みを生成しよう！"]}'
 ```
-※ 上のコマンドにおいて YOUR_API_KEY の部分を API キー に置き換え，"model" の "llama3.2:3b" は実際に導入されている埋め込みに対応したモデルにする．
+※ 上のコマンドにおいて YOUR_API_KEY の部分を Open WebUI の API キー に置き換え，"model" の "llama3.2:3b" は実際に導入されている埋め込みに対応したモデルにする．
 
 これを実行すると，入力されたテキスト ["Open WebUI は素晴らしい！", "埋め込みを生成しよう！"] を数値ベクトルに変換した結果が出力される．
 
