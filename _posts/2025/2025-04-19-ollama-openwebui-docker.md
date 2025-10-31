@@ -114,6 +114,38 @@ sudo ufw allow 3000
 
 他の端末からは `http://IPアドレス:3000` でアクセスできる（IPアドレスは Open WebUI を導入した PC のIPアドレスを指定）．
 
+ufw がインストールされていなければ iptables で設定する．
+ファイヤーウォールが有効（アクティブ）であることを確認
+```bash
+sudo systemctl is-enabled iptables
+```
+有効でなければ起動
+```bash
+sudo systemctl enable iptables
+```
+TCPの3000番ポートへの受信を許可する
+```bash
+sudo iptables -A INPUT -p tcp --dport 3000 -j ACCEPT
+```
+設定の確認
+```bash
+sudo iptables -L INPUT -n --line-numbers
+```
+以下のように表示されれば OK
+```bash
+ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:3000
+```
+上記設定は再起動後にリセットされるので，以下のコマンドで設定を維持するために保存する．
+```bash
+sudo netfilter-persistent save
+```
+
+※ iptables-persistent がインストールされていなければ
+```bash
+sudo apt install -y iptables-persistent
+```
+でインストールしておく．
+
 ### Open WebUI のユーザーの追加
 管理者以外でも Open WebUI を利用できるようにするには，ユーザーを追加する必要がある．
 
