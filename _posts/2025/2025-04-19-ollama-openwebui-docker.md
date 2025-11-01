@@ -192,6 +192,6 @@ curl -fsSL https://ollama.com/install.sh | sh
     docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
     ```
 
-上記のアップデートを行っても，Ollama の設定やこれまでダウンロードした LLM はホストの格納場所(/root/.ollama や /app/backend/data)にそのまま残っているので，これまで通り使用できる．
+上記のアップデートを行っても，Ollama の設定やこれまでダウンロードした LLM はホストの格納場所(/var/lib/docker/volumes/ollama や /var/lib/docker/volumes/open-webui)にそのまま残っているので，これまで通り使用できる．
 
 <span style="color:red;">※ Docker イメージでは，Ollama のバージョンが最新ではないことがあるので，このアップデートにより Ollama のバージョンが下がって新しめの LLM が使えなくなる場合がある．その場合，改めて上記の Ollama のアップデートを行えばよい．</span>
