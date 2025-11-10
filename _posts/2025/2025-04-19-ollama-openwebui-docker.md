@@ -1,6 +1,7 @@
 ---
 title: "Docker with NVIDIA GPU で Ollama + Open WebUI を導入する"
 date: 2025-04-19T10:30:00+09:00
+last_modified_at: 2025-11-10T010:30:30+09:00
 categories:
   - LLM
 tags:
@@ -186,7 +187,7 @@ curl -fsSL https://ollama.com/install.sh | sh
     docker pull ghcr.io/open-webui/open-webui:ollama
     ```
 
-1. 更新したイメージでコンテナを再起動
+1. 更新したイメージでコンテナを再起動  
     GPU を用いて起動するコマンド
     ```bash
     docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
