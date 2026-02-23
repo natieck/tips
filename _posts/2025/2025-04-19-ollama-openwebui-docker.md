@@ -44,8 +44,8 @@ dokcer run のオプションの説明：
 - `-d`　コンテナを「デタッチ」モード（バックグラウンド）で実行
 - `-p 3000:8080`　コンテナの8080番のポートをホストの3000番にマッピング
 - `--gpus=aal`　利用可能なすべての GPU を使用
-- `-v ollama:/root/.ollama`　ホストの ollama をコンテナの /root/.ollama にマウント
-- `-v open-webui:/app/backend/data`　ホストの open-webui をコンテナの /app/backend/data にマウント  
+- `-v ollama:/root/.ollama`　ホストの ollamaフォルダ（/var/lib/docker/volumes/ollama）をコンテナの /root/.ollama にマウント
+- `-v open-webui:/app/backend/data`　ホストの open-webuiフォルダ（/var/lib/docker/volumes/open-webui）をコンテナの /app/backend/data にマウント  
 `-v` オプションのホストの volume の指定において，ディレクトリ名のみの場合，デフォルトでは /var/lib/docker/volumes/ 以下のディレクトリとなる（なければ作成される）
 - `--name open-webui`　コンテナ名を open-webui に設定
 - `--restart always`　コンテナを常に再起動（PC起動時に Docker デーモンが自動でコンテナを起動）
