@@ -49,7 +49,7 @@ docker network create vllm-net
 作成したネットワークは `docker network ls` で確認できる．
 
 ## vLLM コンテナの起動
-vLLM サイトのユーザーガイドの [Using Docker ページ](https://docs.vllm.ai/en/latest/deployment/docker/)において Open WebUI Bundled with Ollama(With GPU Support) の箇所に記載されているコマンドを参考に，上で作成したネットワーク(vllm-net)を指定してコンテナを起動する．
+vLLM サイトのユーザーガイドの [Using Docker ページ](https://docs.vllm.ai/en/latest/deployment/docker/)において Open WebUI Bundled with Ollama(With GPU Support) の箇所に記載されているコマンドを参考に，上で作成したネットワーク(vllm-net)を指定してコンテナを起動する．初めて起動するときは，vllmイメージやモデルのダウンロードで時間がかかる．
 
 ```bash
 docker run -d --name vllm --network vllm-net --gpus all -v ~/.cache/huggingface:/root/.cache/huggingface -p 8000:8000 --ipc=host vllm/vllm-openai:v0.10.2 --model Qwen/Qwen3-1.7B
@@ -142,3 +142,28 @@ sudo netfilter-persistent save
 sudo apt install -y iptables-persistent
 ```
 でインストールしておく．
+
+
+## LLM の切り替え
+vLLM は起動中にモデルを切り替えることができないので，切り替えるためには一旦 vLLM コンテナを削除してから再度モデルを指定して起動する．
+1. Open WebUI コンテナの停止
+```bash
+docker stop open-webui-vllm
+```
+
+2. vLLM コンテナの停止と削除
+```bash
+docker rm -f vllm
+```
+`-f` `(--force)` オプションは実行中のコンテナを強制的に削除するオプション
+
+3. モデルを指定しなおして vLLM コンテナを再起動
+```bash
+docker run -d --name vllm --network vllm-net --gpus all -v ~/.cache/huggingface:/root/.cache/huggingface -p 8000:8000 --ipc=host vllm/vllm-openai:v0.10.2 --model 切り替えたい公開モデル名
+```
+公開モデルでない場合は，`--env "HF_TOKEN=hf_********"` オプションにより環境変数 `HF_TOKEN` を設定する必要がある．
+
+4. Open WebUI コンテナの再起動
+```bash
+docker start open-webui-vllm
+```
