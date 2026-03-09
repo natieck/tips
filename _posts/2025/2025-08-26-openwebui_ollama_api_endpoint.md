@@ -1,6 +1,7 @@
 ---
 title: "Docker で導入した Open WebUI + Ollama の API エンドポイントの使い方"
 date: 2025-08-26T10:30:00+09:00
+last_modified_at: 2026-3-07T010:30:30+09:00
 categories:
   - LLM
 tags:
@@ -26,7 +27,7 @@ Open WebUI の [Quick Start ページ](https://docs.openwebui.com/#open-webui-bu
 
 ## 認証
 
-Open WebUI の API へアクセスするためには認証が必要となる．認証は Bearer Token 方式で行われ，Open WebUI の「設定」->「アカウント」で取得できる API キー，または JWT（JSON Web Token）を使用して認証する．
+Open WebUI の API へアクセスするためには認証が必要となる．認証は Bearer Token 方式で行われ，Open WebUI の「設定」->「アカウント」で取得できる API キー，または JWT（JSON Web Token）を使用して認証する．API キーが表示されない場合は，「管理者パネル」->「設定」->「一般」の「API キーを有効にする」をオンにする．
 
 <span style="font-size:small;color:gray;">*Bearer Token 方式：API認証においてクライアントが発行されたアクセストークンをHTTPリクエストの「Authorization」ヘッダーに付与してサーバーに送信する方式</span>
 
