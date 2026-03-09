@@ -1,7 +1,7 @@
 ---
 title: "Docker with NVIDIA GPU で vLLM + Open WebUI を導入する"
 date: 2026-02-27T10:30:00+09:00
-last_modified_at: 2026-2-28T010:30:30+09:00
+last_modified_at: 2026-3-07T010:30:30+09:00
 categories:
   - LLM
 tags:
