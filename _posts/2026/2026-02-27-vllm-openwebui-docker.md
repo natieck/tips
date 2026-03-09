@@ -73,6 +73,17 @@ docker run -d --name vllm --network vllm-net --gpus all -v ~/.cache/huggingface:
 
 vLLM の Using Docker ページの `docker run` コマンドでは，オプションとして `--runtime nvidia` や `--env "HF_TOKEN=$HF_TOKEN"` を指定しているが，Docker 19.03 以降は，`--gpus all` を指定すれば `--runtime nvidia` は不要である．また，指定する LLM が公開モデルであれば，HF_TOKEN は不要である（Qwen/Qwen3-1.7Bは公開モデル）．公開モデルでなければ，HF_TOKEN には HuggingFace で発行した「Read」アクセストークン文字列を設定しておく．
 
+パラメータサイズの大きいモデルを起動したときに
+```bash
+To serve at least one request with the models's max seq len (40960), 5.62 GiB KV cache is needed, which is larger than the available KV cache memory (2.16 GiB). Based on the available memory, the estimated maximum model length is 15728. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine.
+```
+のようなエラーが出力されたら「KVキャッシュ用のGPUメモリが足りないため，vLLMのエンジン初期化に失敗した」ということなので，小さいモデルに変更する必要がある．または，対処として，パラメータ `max_model_len` を下げたり，`gpu-memory-utilization`（空きメモリをより多く使う）を上げたりする必要がある．上のエラーでは，最大モデル長が 15728 トークンと見積もられてるので，`docker run` の実行の際に
+```
+--max-model-len 15728
+--gpu-memory-utilization 0.92
+```
+のように指定すればよい．
+
 ## Open WebUI コンテナの起動
 vLLM サイトのユーザー外の [Open WebUI ページ](https://docs.vllm.ai/en/latest/deployment/frameworks/open-webui/)に記載のコマンドを参考に，上で作成したネットワーク(vllm-net)を指定してコンテナを起動する（必ず vLLM コンテナの起動後に起動する）．
 
