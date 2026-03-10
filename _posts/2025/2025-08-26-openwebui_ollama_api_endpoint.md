@@ -27,7 +27,7 @@ Open WebUI の [Quick Start ページ](https://docs.openwebui.com/#open-webui-bu
 
 ## 認証
 
-Open WebUI の API へアクセスするためには認証が必要となる．認証は Bearer Token 方式で行われ，Open WebUI の「設定」->「アカウント」で取得できる API キー，または JWT（JSON Web Token）を使用して認証する．API キーが表示されない場合は，「管理者パネル」->「設定」->「一般」の「API キーを有効にする」をオンにする．
+Open WebUI の API へアクセスするためには認証が必要となる．認証は Bearer Token 方式で行われ，Open WebUI の「設定」->「アカウント」で取得できる API キー，または JWT（JSON Web Token）を使用して認証する．API キーが表示されない場合は，「管理者パネル」->「設定」->「一般」の「API キーを有効にする」をオンにする．また，表示されても「新しいシークレットキーを作成」ができない場合は，「管理者パネル」->「ユーザー」->「グループ」のデフォルトの権限において，「API Keys」を有効にする．
 
 <span style="font-size:small;color:gray;">*Bearer Token 方式：API認証においてクライアントが発行されたアクセストークンをHTTPリクエストの「Authorization」ヘッダーに付与してサーバーに送信する方式</span>
 
