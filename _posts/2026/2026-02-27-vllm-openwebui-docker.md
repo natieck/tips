@@ -46,7 +46,7 @@ vLLM コンテナと Open WebUI コンテナを連携させるために Docker �
 ```bash
 docker network create vllm-net
 ```
-作成したネットワークは `docker network ls` で確認できる．
+作成したネットワークは `docker network ls` で確認できる．作成したネットワークを削除するには `docker network rm ネットワーク名（またはID）` を実行する．
 
 ## vLLM コンテナの起動
 vLLM サイトのユーザーガイドの [Using Docker ページ](https://docs.vllm.ai/en/latest/deployment/docker/)において Open WebUI Bundled with Ollama(With GPU Support) の箇所に記載されているコマンドを参考に，上で作成したネットワーク(vllm-net)を指定してコンテナを起動する．初めて起動するときは，vllmイメージやモデルのダウンロードで時間がかかる．
