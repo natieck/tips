@@ -20,7 +20,7 @@ Ubuntu Server 24.04 LTS をインストールした PC に，Docker with NVIDIA 
 
 ### Strata とは
 
-Strata は Qwen3.8-Flash-Nextなどの「MoE（Mixture of Experts）構造」と「巨大なn-gram検索テーブル（PLE表）」の2つを併せ持つLLM（GGUF 形式）を OpenAI 互換 API として提供できる軽量な推論サーバーである．
+[Strata](https://github.com/Niko1221/Strata/blob/main/README.ja.md) は Qwen3.8-Flash-Nextなどの「MoE（Mixture of Experts）構造」と「巨大なn-gram検索テーブル（PLE表）」の2つを併せ持つLLM（GGUF 形式）を OpenAI 互換 API として提供できる軽量な推論サーバーである．
 
 主な特徴は以下の通り．
 
@@ -40,9 +40,7 @@ Open WebUI や各種クライアントからは OpenAI API として利用でき
 
 ### Open WebUI とは
 
-Open WebUI は ChatGPT のような Web ベースのチャットインターフェースである．
-
-対応するバックエンドとして，
+[Open WebUI](https://openwebui.com/) は ChatGPT のような Web ベースのチャットインターフェースである．対応するバックエンドとして，
 
 - OpenAI API
 - Ollama
