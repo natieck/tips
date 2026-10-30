@@ -9,6 +9,7 @@ tags:
   - Open WebUI
   - Docker
   - CUDA
+  - Qwen3.8-Flash-Next
 toc: true
 ---
 
