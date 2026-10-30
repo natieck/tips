@@ -32,9 +32,9 @@ Ubuntu Server 24.04 LTS をインストールした PC に，Docker with NVIDIA 
 - モデルの自動ダウンロード機能を備える
 
 主な対応モデル：
-- Qwen3.8-Flash-Next 系列（125B）
-- GLM-5.3-Flash（321B）
-- DeepSeek-V4.1-Flash
+- Qwen3.8-Flash-Next 系列 (125B)
+- GLM-5.3-Flash (321B)
+- DeepSeek-V4.1-Flash (552B)
 
 Open WebUI や各種クライアントからは OpenAI API として利用できるため，ローカル LLM サーバーとして扱いやすい．
 
