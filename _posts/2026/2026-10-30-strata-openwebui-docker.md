@@ -12,7 +12,7 @@ tags:
 toc: true
 ---
 
-Ubuntu Server 24.04 LTS をインストールした PC に，NVIDIA GPU を利用して Strata と Open WebUI を Docker コンテナで導入したときの備忘録である．
+Ubuntu Server 24.04 LTS をインストールした PC に，Docker with NVIDIA GPU で Strata と Open WebUI を 導入したときの備忘録である．
 
 ---
 
