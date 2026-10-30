@@ -167,7 +167,7 @@ services:
     environment:
       FAMILY: ${STRATA_FAMILY:-gyro}
       MODEL: ${STRATA_MODEL:-Gyro-S}
-      CONTEXT: ${STRATA_CONTEXT:-4096}
+      CONTEXT: ${STRATA_CONTEXT:-16384}
       PARALLEL: ${STRATA_PARALLEL:-1}
       KV: ${STRATA_KV:-int8}
       GPU: "0"
