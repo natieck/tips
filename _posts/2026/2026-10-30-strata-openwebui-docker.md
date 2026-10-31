@@ -12,7 +12,7 @@ tags:
 toc: true
 ---
 
-Ubuntu Server 24.04 LTS をインストールした PC に，Docker with NVIDIA GPU で Strata と Open WebUI を 導入したときの備忘録である．
+Ubuntu Server 24.04 LTS をインストールした PC（システムRAM 32GB，VRAM 12GB）に，Docker with NVIDIA GPU で Strata と Open WebUI を 導入し，LLM として超軽量量子化モデル Qwen3.8-Flash-Next-Gyro-S を利用したときの備忘録である．
 
 ---
 
